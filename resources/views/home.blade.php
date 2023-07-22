@@ -27,7 +27,6 @@
                 @csrf
                 <button class="btn btn-danger">ログアウト</button>
             </form>
-            {{ $user }}
             <form action="{{ route('search') }}" method="POST">
                 @csrf
                 <input type="text" name="post" placeholder="検索">
@@ -38,6 +37,13 @@
                 <input type="text" name="post" placeholder="投稿">
                 <input type="submit">
             </form>
+            {{-- 全投稿 --}}
+            <ul>
+                @foreach($posts as $post)
+                <li>名前:{{ $post->user->name }}</li>
+                <li>{{ $post->post }}</li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </body>

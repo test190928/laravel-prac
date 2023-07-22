@@ -8,6 +8,8 @@ use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use App\Models\Post;
+
 
 class AuthController extends Controller
 {
@@ -49,6 +51,7 @@ class AuthController extends Controller
 
     public function home(){
         $user = User::find(1)->email;
-        return view('home',compact('user'));
+        $posts = Post::get();
+        return view('home',compact('user','posts'));
     }
 }

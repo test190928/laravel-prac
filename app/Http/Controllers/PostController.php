@@ -23,7 +23,8 @@ class PostController extends Controller
     public function search(Request $request){
         $word = $request->input('post');
         $posts = Post::where('post','like',"%$word%")->orderBy('created_at','desc')->get();
-        // dd($posts[0]->user);
+        // $allPosts = Post::get();
+        // dd($allPosts);
         return view('search',compact('posts'));
     }
 }
