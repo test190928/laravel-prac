@@ -30,7 +30,7 @@
             {{ $user }}
             <form action="{{ route('search') }}" method="POST">
                 @csrf
-                <input type="text" name="username" placeholder="検索">
+                <input type="text" name="post" placeholder="検索">
                 <input type="submit">
             </form>
             <form action="{{ route('post') }}" method="POST">

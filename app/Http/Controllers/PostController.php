@@ -19,4 +19,11 @@ class PostController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function search(Request $request){
+        $word = $request->input('post');
+        $posts = Post::where('post','like',"%$word%")->orderBy('created_at','desc')->get();
+        // dd($posts[0]->user);
+        return view('search',compact('posts'));
+    }
 }
