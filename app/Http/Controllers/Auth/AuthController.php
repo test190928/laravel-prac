@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+
 class AuthController extends Controller
 {
     //
@@ -24,11 +26,29 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect('home')->with('login_success','ログイン成功しました');
+            return redirect()->route('home')->with('login_success','ログイン成功しました');
         }
 
         return back()->withErrors([
             'login_error' => 'メールアドレスかパスワードが間違っています',
         ]);
+    }
+
+    /**
+     * ログアウト
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('showLogin')->with('logout','ログアウトしました');
+    }
+
+    public function home(){
+        $user = User::find(1)->email;
+        return view('home',compact('user'));
     }
 }

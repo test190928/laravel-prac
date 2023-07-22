@@ -28,6 +28,11 @@
                         {{ session('login_error') }}
                     </div>
                 @endif
+                @if(session('logout'))
+                    <div class="alert alert-danger">
+                        {{ session('logout') }}
+                    </div>
+                @endif
             </div>
         @endif
         <label for="inputEmail" class="sr-only">Email address</label>

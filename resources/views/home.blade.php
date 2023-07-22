@@ -23,6 +23,21 @@
                 <li>名前:{{ Auth::user()->name }}</li>
                 <li>メールアドレス:{{ Auth::user()->email }}</li>
             </ul>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn btn-danger">ログアウト</button>
+            </form>
+            {{ $user }}
+            <form action="{{ route('search') }}" method="POST">
+                @csrf
+                <input type="text" name="username" placeholder="検索">
+                <input type="submit">
+            </form>
+            <form action="{{ route('post') }}" method="POST">
+                @csrf
+                <input type="text" name="post" placeholder="投稿">
+                <input type="submit">
+            </form>
         </div>
     </div>
 </body>

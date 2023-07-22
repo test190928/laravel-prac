@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +20,21 @@ use App\Http\Controllers\Auth\AuthController;
 // });
 
 Route::middleware(['guest'])->group(function () {
-    // ...
+    //ログインページ表示
     Route::get('/', [AuthController::class,'showLogin'])->name('showLogin');
+    //ログイン処理
     Route::post('login', [AuthController::class, 'login'])->name('login');
 });
 
 
 Route::middleware(['auth'])->group(function () {
-    // ...
-    Route::get('home',function(){
-        return view('home');
-    })->name('home');
+    //ホーム表示
+    Route::get('home', [AuthController::class, 'home'])->name('home');
+    //ログアウト処理
+    Route::post('logout', [AuthController::class,'logout'])->name('logout');
+    //検索処理
+    Route::post('search', [PostController::class, 'search'])->name('search');
+    //投稿処理
+    Route::post('post', [PostController::class, 'post'])->name('post');
 });
 
