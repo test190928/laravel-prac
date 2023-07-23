@@ -40,8 +40,14 @@
             {{-- 全投稿 --}}
             <ul>
                 @foreach($posts as $post)
-                <li>名前:{{ $post->user->name }}</li>
-                <li>{{ $post->post }}</li>
+                <li class="mt-3">
+                    名前:{{ $post->user->name }}
+                    @if(Auth::id() == $post->user_id)
+                    <a href="{{ $post->id }}/edit" class="btn btn-primary">編集</a>
+                    <a href="{{ $post->id }}/delete" class="btn btn-danger">削除</a>
+                    @endif
+                </li>
+                <li>投稿:{{ $post->post }}</li>
                 @endforeach
             </ul>
         </div>

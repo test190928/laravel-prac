@@ -36,5 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('search', [PostController::class, 'search'])->name('search');
     //投稿処理
     Route::post('post', [PostController::class, 'post'])->name('post');
+    //投稿編集
+    Route::get('{id}/edit',[PostController::class, 'showEdit']);
+    //編集処理
+    Route::post('post/edit',[PostController::class, 'postEdit'])->name('postEdit');
+    //投稿削除
+    Route::get('{id}/delete',[PostController::class, 'postDelete']);
 });
 
