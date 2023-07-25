@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<div class="mt-5 w-50 d-flex justify-content-center">
+<div class="mt-5 w-50 d-flex align-items-center flex-column">
     @if(session('login_success'))
         <div class="alert alert-success">
             {{ session('login_success') }}
