@@ -1,0 +1,24 @@
+.test {
+    box-sizing: border-box;
+}
+
+.searchForm {
+    border-radius: 32px;
+}
+
+textarea {
+    resize: none;
+  }
+
+.postForm {
+    height:100px;
+}
+
+.mainWrapper {
+    width:85%;
+    background:#fff;
+}
+
+body,.mainBackground {
+    background: rgb(217, 226, 228);
+}
