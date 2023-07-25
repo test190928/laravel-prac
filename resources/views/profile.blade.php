@@ -2,7 +2,16 @@
 @section('content')
         <div class="w-50 d-flex align-items-center flex-column">
             <div class="w-100">
-                <h3>タイムライン</h3>
+                <h3>プロフィール</h3>
+            </div>
+            <div class="w-100">
+                <div class="fw-bold">名前</div>
+                <div>{{ $user->name }}</div>
+                <div class="fw-bold">メールアドレス</div>
+                <div>{{ $user->email }}</div>
+            </div>
+            <div class="w-100 mt-3">
+                <h3>投稿</h3>
             </div>
             {{-- 検索結果 --}}
             <div class="w-100 d-flex flex-column align-items-center">

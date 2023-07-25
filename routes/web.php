@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('post/edit',[PostController::class, 'postEdit'])->name('postEdit');
     //投稿削除
     Route::get('{id}/delete',[PostController::class, 'postDelete']);
+    //会社概要表示
+    Route::get('about',[PostController::class,'about'])->name('about');
+    //プロフィール表示
+    Route::get('profile/{id}',[UserController::class,'showProfile']);
 });
 
