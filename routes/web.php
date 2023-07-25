@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
@@ -25,6 +26,10 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', [AuthController::class,'showLogin'])->name('showLogin');
     //ログイン処理
     Route::post('login', [AuthController::class, 'login'])->name('login');
+    //新規登録ページ表示
+    Route::get('/showRegister',[RegisterController::class,'showRegister'])->name('showRegister');
+    //新規登録処理
+    Route::post('register',[RegisterController::class,'register'])->name('register');
 });
 
 
