@@ -13,9 +13,9 @@
     <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
 </head>
 <body>
-    <form class="form-signin" method="POST" action="{{ route('login') }}">
+    <form class="form-signin" method="POST" action="{{ route('register') }}">
         @csrf
-        <h1 class="h3 mb-3 font-weight-normal">ログインフォーム</h1>
+        <h1 class="h3 mb-3 font-weight-normal">新規登録</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -35,17 +35,13 @@
                 {{ session('logout') }}
             </div>
         @endif
-        @if(session('register'))
-            <div class="alert alert-aripary">
-                {{ session('register') }}
-            </div>
-        @endif
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" autofocus>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
         <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
-        <a href="{{ route('showRegister') }}" class="mx-2">新規登録</a>
     </form>
 </body>
 </html>
