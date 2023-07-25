@@ -61,8 +61,21 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * 投稿削除処理
+     * @param [type] $id
+     * @return void
+     */
     public function postDelete($id){
         Post::find($id)->delete();
         return redirect()->route('home');
+    }
+
+    /**
+     * 会社概要表示
+     * @return void
+     */
+    public function about(){
+        return view('about');
     }
 }

@@ -16,12 +16,12 @@
 </head>
 <body>
     <div class="container d-flex w-100 justify-content-center mainBackground">
-        <div class="d-flex mainWrapper justify-content-center pt-3">
+        <div class="d-flex mainWrapper justify-content-center py-3">
             <!--左サイド-->
             <div class="sideMenu w-25 d-flex flex-column align-items-center">
                 <a href="{{ route('home') }}" class="btn btn-primary w-75 mb-2">トップ</a>
                 <div class="btn btn-primary w-75 mb-2">プロフィール</div>
-                <div class="btn btn-primary w-75 mb-2">企業情報</div>
+                <a href="{{ route('about') }}" class="btn btn-primary w-75 mb-2">会社概要</a>
                 <form action="{{ route('logout') }}" method="POST" class="w-75 mb-2">
                     @csrf
                     <button class="btn btn-danger w-100">ログアウト</button>

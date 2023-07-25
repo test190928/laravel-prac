@@ -42,5 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('post/edit',[PostController::class, 'postEdit'])->name('postEdit');
     //投稿削除
     Route::get('{id}/delete',[PostController::class, 'postDelete']);
+    //会社概要表示
+    Route::get('about',[PostController::class,'about'])->name('about');
 });
 
