@@ -13,12 +13,16 @@ use App\Models\Post;
 
 class AuthController extends Controller
 {
-    //
+    /**
+     * ログイン画面表示
+     * @return void
+     */
     public function showLogin(){
         return view('login.login_form');
     }
 
     /**
+     * ログイン処理
      * @param LoginFormRequest $request
      * @return void
      */
@@ -38,7 +42,6 @@ class AuthController extends Controller
 
     /**
      * ログアウト
-     *
      * @param Request $request
      * @return void
      */
@@ -49,6 +52,10 @@ class AuthController extends Controller
         return redirect()->route('showLogin')->with('logout','ログアウトしました');
     }
 
+    /**
+     * ホーム表示
+     * @return void
+     */
     public function home(){
         $user = User::find(1)->email;
         $posts = Post::get();

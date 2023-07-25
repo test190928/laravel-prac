@@ -20,7 +20,7 @@
             <!--左サイド-->
             <div class="sideMenu w-25 d-flex flex-column align-items-center">
                 <a href="{{ route('home') }}" class="btn btn-primary w-75 mb-2">トップ</a>
-                <div class="btn btn-primary w-75 mb-2">プロフィール</div>
+                <a href="profile/{{ Auth::id() }}" class="btn btn-primary w-75 mb-2">プロフィール</a>
                 <a href="{{ route('about') }}" class="btn btn-primary w-75 mb-2">会社概要</a>
                 <form action="{{ route('logout') }}" method="POST" class="w-75 mb-2">
                     @csrf
@@ -43,7 +43,7 @@
                     <div>メールアドレス</div>
                     <div>{{ Auth::user()->email }}</div>
                     <div class="d-flex justify-content-end mt-2">
-                        <div class="btn btn-primary">詳細</div>
+                        <a class="btn btn-primary" href="profile/{{ Auth::id() }}">詳細</a>
                     </div>
                 </div>
             </div>
