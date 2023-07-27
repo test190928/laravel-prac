@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,5 +53,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('about',[PostController::class,'about'])->name('about');
     //プロフィール表示
     Route::get('profile/{id}',[UserController::class,'showProfile']);
+
+    //apiテスト
+    Route::get('api/test',[TestController::class,'apiTest'])->name('apiTest');
 });
 

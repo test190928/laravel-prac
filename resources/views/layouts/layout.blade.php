@@ -22,6 +22,7 @@
                 <a href="{{ route('home') }}" class="btn btn-primary w-75 mb-2">トップ</a>
                 <a href="profile/{{ Auth::id() }}" class="btn btn-primary w-75 mb-2">プロフィール</a>
                 <a href="{{ route('about') }}" class="btn btn-primary w-75 mb-2">会社概要</a>
+                <a href="{{ route('apiTest') }}" class="btn btn-primary w-75 mb-2">API読込</a>
                 <form action="{{ route('logout') }}" method="POST" class="w-75 mb-2">
                     @csrf
                     <button class="btn btn-danger w-100">ログアウト</button>
